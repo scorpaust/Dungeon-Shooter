@@ -1,0 +1,66 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-3852485420595348459
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c7d48d63ee049144bbcc09d1ff7bf89, type: 3}
+  m_Name: RoomNode
+  m_EditorClassIdentifier: 
+  id: 96754d71-df95-46c5-bb19-0616c26ffc2f
+  parentRoomNodeIDList: []
+  childRoomNodeIDList: []
+  roomNodeGraph: {fileID: 11400000}
+  roomNodeType: {fileID: 11400000, guid: e95e903ff67bebe499e15ab845e134fa, type: 2}
+  roomNodeTypeList: {fileID: 11400000, guid: fbba403a31d3d3f49a3c43adf5bc6011, type: 2}
+  rect:
+    serializedVersion: 2
+    x: 477
+    y: 309
+    width: 160
+    height: 75
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8568f8383228a943b3c5b92b618d488, type: 3}
+  m_Name: RoomNodeGraph
+  m_EditorClassIdentifier: 
+  roomNodeTypeList: {fileID: 0}
+  roomNodeList:
+  - {fileID: 2864462255515144351}
+  - {fileID: -3852485420595348459}
+--- !u!114 &2864462255515144351
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c7d48d63ee049144bbcc09d1ff7bf89, type: 3}
+  m_Name: RoomNode
+  m_EditorClassIdentifier: 
+  id: c341ee2a-9733-46ff-b2aa-9ccbd0161450
+  parentRoomNodeIDList: []
+  childRoomNodeIDList: []
+  roomNodeGraph: {fileID: 11400000}
+  roomNodeType: {fileID: 11400000, guid: 2d7535997a681d147afbc21b361245b5, type: 2}
+  roomNodeTypeList: {fileID: 11400000, guid: fbba403a31d3d3f49a3c43adf5bc6011, type: 2}
+  rect:
+    serializedVersion: 2
+    x: 325
+    y: 165
+    width: 160
+    height: 75
