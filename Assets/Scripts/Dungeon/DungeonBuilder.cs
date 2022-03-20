@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 [DisallowMultipleComponent]
 public class DungeonBuilder : SingletonMonobehaviour<DungeonBuilder>
@@ -484,7 +485,22 @@ public class DungeonBuilder : SingletonMonobehaviour<DungeonBuilder>
 
     private void InstantiateRoomGameobjects()
 	{
+        foreach (KeyValuePair<string, Room> keyvaluepair in dungeonBuilderRoomDictionary)
+		{
+            Room room = keyvaluepair.Value;
 
+            Vector3 roomPosition = new Vector3(room.lowerBounds.x - room.templateLowerBounds.x, room.lowerBounds.y - room.templateLowerBounds.y, 0f);
+
+            GameObject roomGameObject = Instantiate(room.prefab, roomPosition, Quaternion.identity, transform);
+
+            InstantiatedRoom instantiatedRoom = roomGameObject.GetComponentInChildren<InstantiatedRoom>();
+
+            instantiatedRoom.room = room;
+
+            instantiatedRoom.Initialise(roomGameObject);
+
+            room.instanciatedRoom = instantiatedRoom;
+		}
 	}
 
     public RoomTemplateSO GetRoomTemplate(string roomTemplateID)
