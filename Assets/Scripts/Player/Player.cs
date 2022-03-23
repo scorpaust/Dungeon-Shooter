@@ -5,6 +5,12 @@ using UnityEngine.Rendering;
 
 #region REQUIRE COMPONENTS
 [RequireComponent(typeof(Health))]
+[RequireComponent(typeof(PlayerControl))]
+[RequireComponent(typeof(IdleEvent))]
+[RequireComponent(typeof(Idle))]
+[RequireComponent(typeof(AimWeaponEvent))]
+[RequireComponent(typeof(AimWeapon))]
+[RequireComponent(typeof(AnimatePlayer))]
 [RequireComponent(typeof(SortingGroup))]
 [RequireComponent(typeof(SpriteRenderer))]
 [RequireComponent(typeof(Animator))]
@@ -17,12 +23,18 @@ public class Player : MonoBehaviour
 {
     [HideInInspector] public PlayerDetailsSO playerDetails;
     [HideInInspector] public Health health;
+	[HideInInspector] public IdleEvent idleEvent;
+	[HideInInspector] public AimWeaponEvent aimWeaponEvent;
     [HideInInspector] public SpriteRenderer spriteRenderer;
     [HideInInspector] public Animator animator;
 
 	private void Awake()
 	{
 		health = GetComponent<Health>();
+
+		idleEvent = GetComponent<IdleEvent>();
+
+		aimWeaponEvent = GetComponent<AimWeaponEvent>();
 
 		spriteRenderer = GetComponent<SpriteRenderer>();
 
