@@ -9952,6 +9952,7 @@ GameObject:
   - component: {fileID: 3522761428400934649}
   - component: {fileID: 3522761428400934650}
   - component: {fileID: 5304204567744694454}
+  - component: {fileID: -1836272013765493049}
   m_Layer: 12
   m_Name: Corridor_NS_MyRooms_1
   m_TagString: Untagged
@@ -10023,6 +10024,18 @@ MonoBehaviour:
   roomColliderBounds:
     m_Center: {x: 0, y: 0, z: 0}
     m_Extent: {x: 0, y: 0, z: 0}
+--- !u!114 &-1836272013765493049
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3522761428400934651}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3f803f6f2cec8d418a65255f8e4f39b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3522761428471407891
 GameObject:
   m_ObjectHideFlags: 0

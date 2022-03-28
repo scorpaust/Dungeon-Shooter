@@ -47,4 +47,35 @@ public class GameResources : MonoBehaviour
 	[Tooltip("Dimmed Material")]
 	#endregion Tooltip
 	public Material dimmedMaterial;
+
+	#region Tooltip
+	[Tooltip("Sprite-Lit-Default Material")]
+	#endregion Tooltip
+	public Material litMaterial;
+
+	#region Tooltip
+	[Tooltip("Populate with the variable lit shader")]
+	#endregion Tooltip
+	public Shader variableLitShader;
+
+	#region Validation
+
+#if UNITY_EDITOR
+
+	private void OnValidate()
+	{
+		HelperUtilities.ValidateCheckNullValues(this, nameof(roomNodeTypeList), roomNodeTypeList);
+
+		HelperUtilities.ValidateCheckNullValues(this, nameof(currentPlayer), currentPlayer);
+
+		HelperUtilities.ValidateCheckNullValues(this, nameof(litMaterial), litMaterial);
+
+		HelperUtilities.ValidateCheckNullValues(this, nameof(dimmedMaterial), dimmedMaterial);
+
+		HelperUtilities.ValidateCheckNullValues(this, nameof(variableLitShader), variableLitShader);
+	}
+
+#endif
+
+	#endregion Validation
 }
