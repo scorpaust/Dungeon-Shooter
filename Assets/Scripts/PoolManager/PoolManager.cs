@@ -41,7 +41,7 @@ public class PoolManager : SingletonMonobehaviour<PoolManager>
 
 		string prefabName = prefab.name;
 
-		GameObject parentGameObject = new GameObject(prefabName = "Anchor");
+		GameObject parentGameObject = new GameObject(prefabName + "Anchor");
 
 		parentGameObject.transform.SetParent(objectPoolTransform);
 
