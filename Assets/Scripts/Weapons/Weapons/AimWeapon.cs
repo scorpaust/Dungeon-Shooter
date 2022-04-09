@@ -59,7 +59,7 @@ public class AimWeapon : MonoBehaviour
 
 	private void OnValidate()
 	{
-		HelperUtilities.ValidateCheckNullValues(this, nameof(weaponRotationPointTransform), weaponRotationPointTransform);
+		HelperUtilities.ValidateCheckNullValue(this, nameof(weaponRotationPointTransform), weaponRotationPointTransform);
 	}
 
 #endif

@@ -64,15 +64,15 @@ public class GameResources : MonoBehaviour
 
 	private void OnValidate()
 	{
-		HelperUtilities.ValidateCheckNullValues(this, nameof(roomNodeTypeList), roomNodeTypeList);
+		HelperUtilities.ValidateCheckNullValue(this, nameof(roomNodeTypeList), roomNodeTypeList);
 
-		HelperUtilities.ValidateCheckNullValues(this, nameof(currentPlayer), currentPlayer);
+		HelperUtilities.ValidateCheckNullValue(this, nameof(currentPlayer), currentPlayer);
 
-		HelperUtilities.ValidateCheckNullValues(this, nameof(litMaterial), litMaterial);
+		HelperUtilities.ValidateCheckNullValue(this, nameof(litMaterial), litMaterial);
 
-		HelperUtilities.ValidateCheckNullValues(this, nameof(dimmedMaterial), dimmedMaterial);
+		HelperUtilities.ValidateCheckNullValue(this, nameof(dimmedMaterial), dimmedMaterial);
 
-		HelperUtilities.ValidateCheckNullValues(this, nameof(variableLitShader), variableLitShader);
+		HelperUtilities.ValidateCheckNullValue(this, nameof(variableLitShader), variableLitShader);
 	}
 
 #endif

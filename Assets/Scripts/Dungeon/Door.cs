@@ -93,7 +93,7 @@ public class Door : MonoBehaviour
 
 	private void OnValidate()
 	{
-		HelperUtilities.ValidateCheckNullValues(this, nameof(doorCollider), doorCollider);
+		HelperUtilities.ValidateCheckNullValue(this, nameof(doorCollider), doorCollider);
 	}
 
 #endif

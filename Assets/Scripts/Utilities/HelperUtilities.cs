@@ -32,6 +32,13 @@ public static class HelperUtilities
 		return degrees;
 	}
 
+	public static Vector3 GetDirectionVectorFromAngle(float angle)
+	{
+		Vector3 directionVector = new Vector3(Mathf.Cos(Mathf.Deg2Rad * angle), Mathf.Sin(Mathf.Deg2Rad * angle), 0f);
+
+		return directionVector;
+	}
+
 	public static AimDirection GetAimDirection(float angleDegrees)
 	{
 		AimDirection aimDirection;
@@ -90,7 +97,7 @@ public static class HelperUtilities
 		return false;
 	}
 
-	public static bool ValidateCheckNullValues(Object thisObject, string fieldName, UnityEngine.Object objectToCheck)
+	public static bool ValidateCheckNullValue(Object thisObject, string fieldName, UnityEngine.Object objectToCheck)
 	{
 		if (objectToCheck == null)
 		{
@@ -229,4 +236,5 @@ public static class HelperUtilities
 
 		return nearestSpawnPosition;
 	}
+
 }
