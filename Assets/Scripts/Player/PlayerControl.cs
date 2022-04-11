@@ -146,6 +146,9 @@ public class PlayerControl : MonoBehaviour
 		AimDirection playerAimDirection;
 
 		AimWeaponInput(out weaponDirection, out weaponAngleDegrees, out playerAngleDegrees, out playerAimDirection);
+
+		// Fire weapon input
+		FireWeaponInput(weaponDirection, weaponAngleDegrees, playerAngleDegrees, playerAimDirection);
 	}
 
 	private void AimWeaponInput(out Vector3 weaponDirection, out float weaponAngleDegrees, out float playerAngleDegrees, out AimDirection playerAimDirection)
@@ -163,6 +166,16 @@ public class PlayerControl : MonoBehaviour
 		playerAimDirection = HelperUtilities.GetAimDirection(playerAngleDegrees);
 
 		player.aimWeaponEvent.CallAimWeaponEvent(playerAimDirection, playerAngleDegrees, weaponAngleDegrees, weaponDirection);
+	}
+
+	private void FireWeaponInput(Vector3 weaponDirection, float weaponAngleDegrees, float playerAngleDegrees, AimDirection playerAimDirection)
+	{
+		// Fire when left mouse button is clicked
+		if (Input.GetMouseButton(0))
+		{
+			// Trigger fire wepon event
+			player.fireWeaponEvent.CallFireWeaponEvent(true, playerAimDirection, playerAngleDegrees, weaponAngleDegrees, weaponDirection);
+		}
 	}
 
 	private void SetWeaponByIndex(int weaponIndex)
