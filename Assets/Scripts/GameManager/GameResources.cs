@@ -58,6 +58,15 @@ public class GameResources : MonoBehaviour
 	#endregion Tooltip
 	public Shader variableLitShader;
 
+	#region Header UI
+	[Space(10)]
+	[Header("UI")]
+	#endregion Header UI
+	#region Tooltip
+	[Tooltip("Populate with ammo icon prefab")]
+	#endregion Tooltip
+	public GameObject ammoIconPrefab;
+
 	#region Validation
 
 #if UNITY_EDITOR

@@ -10,6 +10,8 @@ public class PlayerControl : MonoBehaviour
 
 	private Player player;
 
+	private bool leftMouseDownPreviousFrame = false;
+
 	private int currentWeaponIndex = 1;
 
 	private float moveSpeed;
@@ -177,7 +179,13 @@ public class PlayerControl : MonoBehaviour
 		if (Input.GetMouseButton(0))
 		{
 			// Trigger fire wepon event
-			player.fireWeaponEvent.CallFireWeaponEvent(true, playerAimDirection, playerAngleDegrees, weaponAngleDegrees, weaponDirection);
+			player.fireWeaponEvent.CallFireWeaponEvent(true, leftMouseDownPreviousFrame, playerAimDirection, playerAngleDegrees, weaponAngleDegrees, weaponDirection);
+
+			leftMouseDownPreviousFrame = true;
+		}
+		else
+		{
+			leftMouseDownPreviousFrame = false;
 		}
 	}
 
