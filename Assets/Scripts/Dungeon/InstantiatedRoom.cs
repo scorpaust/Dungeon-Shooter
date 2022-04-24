@@ -15,6 +15,7 @@ public class InstantiatedRoom : MonoBehaviour
     [HideInInspector] public Tilemap frontTilemap;
     [HideInInspector] public Tilemap collisionTilemap;
     [HideInInspector] public Tilemap minimapTilemap;
+    [HideInInspector] public int[,] aStarMovementPenalty;
     [HideInInspector] public Bounds roomColliderBounds;
 
     private BoxCollider2D boxCollider2D;
@@ -41,6 +42,8 @@ public class InstantiatedRoom : MonoBehaviour
         PopulateTilemapMemberVariables(roomGameObject);
 
         BlockOffUnusedDoorways();
+
+        AddObstaclesAndPreferedPaths();
 
         AddDoorsToRooms();
 
@@ -184,6 +187,39 @@ public class InstantiatedRoom : MonoBehaviour
 
         }
     }
+
+    private void AddObstaclesAndPreferedPaths()
+	{
+        // this array will be populated with all obstacles
+        aStarMovementPenalty = new int[room.templateUpperBounds.x - room.templateLowerBounds.x + 1, room.templateUpperBounds.y - room.templateLowerBounds.y + 1];
+
+        // Loop through all grid squares
+        for (int x = 0; x < (room.templateUpperBounds.x - room.templateLowerBounds.x + 1); x++)
+		{
+            for (int y = 0; y < (room.templateUpperBounds.y - room.templateLowerBounds.y + 1); y++)
+			{
+                // Set default movement penalty for grid squares
+                aStarMovementPenalty[x, y] = Settings.defaultAStarMovementPenalty;
+
+                // Add obstacles for collision tiles the enemy can't walk on
+                TileBase tile = collisionTilemap.GetTile(new Vector3Int(x + room.templateLowerBounds.x, y + room.templateLowerBounds.y, 0));
+
+                foreach (TileBase collisionTile in GameResources.Instance.enemyUnwalkableCollisionTilesArray)
+				{
+                    if (tile == collisionTile)
+					{
+                        aStarMovementPenalty[x, y] = 0;
+                        break;
+					}
+				}
+
+                if (tile == GameResources.Instance.preferedEnemyPathTile)
+				{
+                    aStarMovementPenalty[x, y] = Settings.preferedPathAStarMovementPenalty;
+				}
+			}
+		}
+	}
 
     private void AddDoorsToRooms()
 	{

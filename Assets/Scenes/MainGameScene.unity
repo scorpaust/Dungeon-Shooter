@@ -972,6 +972,7 @@ GameObject:
   m_Component:
   - component: {fileID: 451347776}
   - component: {fileID: 451347775}
+  - component: {fileID: 451347777}
   m_Layer: 0
   m_Name: DungeonBuilder
   m_TagString: Untagged
@@ -1005,6 +1006,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &451347777
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 451347774}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d620c370ec0d03341b50629da40c2991, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &497130089
 GameObject:
   m_ObjectHideFlags: 0
@@ -1966,6 +1979,15 @@ MonoBehaviour:
   - poolSize: 20
     prefab: {fileID: 6053008767055699997, guid: 930d994f3ab67b645a65364c42a326eb, type: 3}
     componentType: WeaponShootEffect
+  - poolSize: 20
+    prefab: {fileID: 768117877868590575, guid: b64438b686673e44789a6c6202aecef6, type: 3}
+    componentType: WeaponShootEffect
+  - poolSize: 20
+    prefab: {fileID: 5757358142835561392, guid: fa0c9b693d2b54f4cacb4f554cecaa4c, type: 3}
+    componentType: WeaponShootEffect
+  - poolSize: 20
+    prefab: {fileID: 768117877868590575, guid: 35b21a78b21041e4298f457151d146e1, type: 3}
+    componentType: AmmoHitEffect
 --- !u!4 &1231150462
 Transform:
   m_ObjectHideFlags: 0

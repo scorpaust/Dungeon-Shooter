@@ -122,7 +122,5 @@ public class WeaponShootEffect : MonoBehaviour
 		minMaxCurveZ.constantMax = maxVelocity.z;
 
 		velocityOverLifetimeModule.z = minMaxCurveZ;
-
-
 	}
 }

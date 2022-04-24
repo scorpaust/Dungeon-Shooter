@@ -47,6 +47,15 @@ public class AmmoDetailsSO : ScriptableObject
 	#endregion Tooltip
 	public Material ammoChargeMaterial;
 
+	#region Header AMMO HIT EFFECT
+	[Space(10)]
+	[Header("AMMO HIT EFFECT")]
+	#endregion Header AMMO HIT EFFECT
+	#region Tooltip
+	[Tooltip("The scriptable object that defines the parameters for the hit effect prefab")]
+	#endregion Tooltip
+	public AmmoHitEffectSO ammoHitEffect;
+
 	#region Header AMMO BASE PARAMETERS
 	[Space(10)]
 	[Header("AMMO BASE PARAMETERS")]
