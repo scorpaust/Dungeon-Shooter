@@ -75,6 +75,10 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3282721880007349393, guid: e918703ac83a5464587fe0a12aff6b7c, type: 3}
+      propertyPath: movementDetails
+      value: 
+      objectReference: {fileID: 11400000, guid: ed930bf8d7168cb429273e33e107ab9e, type: 2}
     - target: {fileID: 7777229918510902392, guid: e918703ac83a5464587fe0a12aff6b7c, type: 3}
       propertyPath: m_Name
       value: SlimeBlock_Red

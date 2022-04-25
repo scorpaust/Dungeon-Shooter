@@ -75,6 +75,10 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 0.5058824
       objectReference: {fileID: 0}
+    - target: {fileID: 3520514237204383454, guid: eadc585acf1061f46a679f8d8032b009, type: 3}
+      propertyPath: movementDetails
+      value: 
+      objectReference: {fileID: 11400000, guid: 48838ba87b786ca408ee6a5b0f794eec, type: 2}
     - target: {fileID: 7592920310821011093, guid: eadc585acf1061f46a679f8d8032b009, type: 3}
       propertyPath: m_Color.b
       value: 0.47058824
