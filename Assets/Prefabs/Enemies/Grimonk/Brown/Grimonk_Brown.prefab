@@ -63,6 +63,10 @@ PrefabInstance:
       propertyPath: m_Points.m_Paths.Array.data[0].Array.data[4].y
       value: 1.3670363
       objectReference: {fileID: 0}
+    - target: {fileID: 1067490609801384709, guid: 7ba53886c7e19d842aa1d7f8e4e6a830, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 944ecbb1810696b4a8a6781ac1e002a5, type: 2}
     - target: {fileID: 2462520528740514806, guid: 7ba53886c7e19d842aa1d7f8e4e6a830, type: 3}
       propertyPath: m_Name
       value: Grimonk_Brown

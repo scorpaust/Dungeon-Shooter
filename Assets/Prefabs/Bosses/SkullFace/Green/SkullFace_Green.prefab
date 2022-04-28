@@ -91,6 +91,10 @@ PrefabInstance:
       propertyPath: m_Points.m_Paths.Array.data[0].Array.data[7].y
       value: 3.1894388
       objectReference: {fileID: 0}
+    - target: {fileID: 1067490609801384709, guid: 7ba53886c7e19d842aa1d7f8e4e6a830, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 2a6e05932cc7db243b3bb6296cff5612, type: 2}
     - target: {fileID: 2462520528740514806, guid: 7ba53886c7e19d842aa1d7f8e4e6a830, type: 3}
       propertyPath: m_Name
       value: SkullFace_Green

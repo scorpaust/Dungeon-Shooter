@@ -135,6 +135,10 @@ PrefabInstance:
       propertyPath: m_Points.m_Paths.Array.data[0].Array.data[13].y
       value: 1.5899277
       objectReference: {fileID: 0}
+    - target: {fileID: 1067490609801384709, guid: 7ba53886c7e19d842aa1d7f8e4e6a830, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 0f372b3c644e5ce4a9d95f7f7f25d99a, type: 2}
     - target: {fileID: 2462520528740514806, guid: 7ba53886c7e19d842aa1d7f8e4e6a830, type: 3}
       propertyPath: m_Name
       value: Mudrock_Brown

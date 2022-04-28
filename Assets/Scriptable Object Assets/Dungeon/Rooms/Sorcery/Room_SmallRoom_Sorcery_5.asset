@@ -62,3 +62,90 @@ MonoBehaviour:
   - {x: 19, y: 8}
   - {x: 29, y: 8}
   - {x: 24, y: 4}
+  enemiesByLevelList:
+  - dungeonLevel: {fileID: 11400000, guid: 314ce2471ed974b4aa6acebea8385b22, type: 2}
+    spawnableObjectRatioList:
+    - dungeonObject: {fileID: 11400000, guid: 4d52091d6ddae214dabec8395b9aaa7f, type: 2}
+      ratio: 3
+    - dungeonObject: {fileID: 11400000, guid: 08a5453aec85d8e478e053c6b9990103, type: 2}
+      ratio: 3
+    - dungeonObject: {fileID: 11400000, guid: 5fced00695c8578429ccdc834fbb9156, type: 2}
+      ratio: 3
+    - dungeonObject: {fileID: 11400000, guid: f166e0e5aa3a8ab43a37a8e3a146855d, type: 2}
+      ratio: 3
+    - dungeonObject: {fileID: 11400000, guid: de18d9a00254ef74d988a9b86a385100, type: 2}
+      ratio: 2
+    - dungeonObject: {fileID: 11400000, guid: ca3274a469acf3e4791e5d7a858a1abb, type: 2}
+      ratio: 2
+    - dungeonObject: {fileID: 11400000, guid: 0c40c3919a6b74c4c9c610fef644dbe0, type: 2}
+      ratio: 1
+    - dungeonObject: {fileID: 11400000, guid: b521e992c99277b45aee219420fad298, type: 2}
+      ratio: 2
+    - dungeonObject: {fileID: 11400000, guid: 9361f5ac518279942859f67279c12741, type: 2}
+      ratio: 1
+  - dungeonLevel: {fileID: 11400000, guid: e3f05cd38b1e05e40999560ff8d123e1, type: 2}
+    spawnableObjectRatioList:
+    - dungeonObject: {fileID: 11400000, guid: 4d52091d6ddae214dabec8395b9aaa7f, type: 2}
+      ratio: 2
+    - dungeonObject: {fileID: 11400000, guid: 08a5453aec85d8e478e053c6b9990103, type: 2}
+      ratio: 4
+    - dungeonObject: {fileID: 11400000, guid: 5fced00695c8578429ccdc834fbb9156, type: 2}
+      ratio: 4
+    - dungeonObject: {fileID: 11400000, guid: f166e0e5aa3a8ab43a37a8e3a146855d, type: 2}
+      ratio: 2
+    - dungeonObject: {fileID: 11400000, guid: de18d9a00254ef74d988a9b86a385100, type: 2}
+      ratio: 4
+    - dungeonObject: {fileID: 11400000, guid: ca3274a469acf3e4791e5d7a858a1abb, type: 2}
+      ratio: 4
+    - dungeonObject: {fileID: 11400000, guid: 0c40c3919a6b74c4c9c610fef644dbe0, type: 2}
+      ratio: 2
+    - dungeonObject: {fileID: 11400000, guid: 5b1ae1cee99b3e548b72b0800eb47be2, type: 2}
+      ratio: 3
+    - dungeonObject: {fileID: 11400000, guid: b521e992c99277b45aee219420fad298, type: 2}
+      ratio: 2
+    - dungeonObject: {fileID: 11400000, guid: 9361f5ac518279942859f67279c12741, type: 2}
+      ratio: 3
+  - dungeonLevel: {fileID: 11400000, guid: ae3ba34a331652c4c83044ee180930a2, type: 2}
+    spawnableObjectRatioList:
+    - dungeonObject: {fileID: 11400000, guid: 4d52091d6ddae214dabec8395b9aaa7f, type: 2}
+      ratio: 1
+    - dungeonObject: {fileID: 11400000, guid: 08a5453aec85d8e478e053c6b9990103, type: 2}
+      ratio: 2
+    - dungeonObject: {fileID: 11400000, guid: 5fced00695c8578429ccdc834fbb9156, type: 2}
+      ratio: 2
+    - dungeonObject: {fileID: 11400000, guid: f166e0e5aa3a8ab43a37a8e3a146855d, type: 2}
+      ratio: 1
+    - dungeonObject: {fileID: 11400000, guid: de18d9a00254ef74d988a9b86a385100, type: 2}
+      ratio: 2
+    - dungeonObject: {fileID: 11400000, guid: ca3274a469acf3e4791e5d7a858a1abb, type: 2}
+      ratio: 2
+    - dungeonObject: {fileID: 11400000, guid: 0c40c3919a6b74c4c9c610fef644dbe0, type: 2}
+      ratio: 2
+    - dungeonObject: {fileID: 11400000, guid: 5b1ae1cee99b3e548b72b0800eb47be2, type: 2}
+      ratio: 3
+    - dungeonObject: {fileID: 11400000, guid: b521e992c99277b45aee219420fad298, type: 2}
+      ratio: 1
+    - dungeonObject: {fileID: 11400000, guid: 9361f5ac518279942859f67279c12741, type: 2}
+      ratio: 4
+  roomEnemySpawnParametersList:
+  - dungeonLevel: {fileID: 11400000, guid: 314ce2471ed974b4aa6acebea8385b22, type: 2}
+    minTotalEnemiesToSpawn: 6
+    maxTotalEnemiesToSpawn: 8
+    minConcurrentEnemies: 3
+    maxConcurrentEnemies: 4
+    minSpawnInterval: 3
+    maxSpawnInterval: 6
+  - dungeonLevel: {fileID: 11400000, guid: e3f05cd38b1e05e40999560ff8d123e1, type: 2}
+    minTotalEnemiesToSpawn: 7
+    maxTotalEnemiesToSpawn: 10
+    minConcurrentEnemies: 4
+    maxConcurrentEnemies: 5
+    minSpawnInterval: 3
+    maxSpawnInterval: 5
+  - dungeonLevel: {fileID: 11400000, guid: ae3ba34a331652c4c83044ee180930a2, type: 2}
+    minTotalEnemiesToSpawn: 9
+    maxTotalEnemiesToSpawn: 14
+    minConcurrentEnemies: 5
+    maxConcurrentEnemies: 8
+    minSpawnInterval: 2
+    maxSpawnInterval: 5

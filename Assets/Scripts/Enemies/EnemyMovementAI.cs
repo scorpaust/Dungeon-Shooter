@@ -27,6 +27,13 @@ public class EnemyMovementAI : MonoBehaviour
 
 	private bool chasePlayer = false;
 
+	private void Awake()
+	{
+		enemy = GetComponent<Enemy>();
+
+		moveSpeed = movementDetails.GetMoveSpeed();
+	}
+
 	private void Start()
 	{
 		// Create waitForFixedUpdate for use in coroutine
@@ -72,10 +79,13 @@ public class EnemyMovementAI : MonoBehaviour
 			// If a path has been found, move the enemy
 			if (movementSteps != null)
 			{
-				// Trigger idle event
-				enemy.idleEvent.CallIdleEvent();
+				if (moveEnemyRoutine != null)
+				{
+					// Trigger idle event
+					enemy.idleEvent.CallIdleEvent();
 
-				StopCoroutine(moveEnemyRoutine);
+					StopCoroutine(moveEnemyRoutine);
+				}
 			}
 
 			// Move enemy along the path using a coroutine

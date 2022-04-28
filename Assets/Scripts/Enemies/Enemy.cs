@@ -9,6 +9,7 @@ using UnityEngine.Rendering;
 [RequireComponent(typeof(MovementToPosition))]
 [RequireComponent(typeof(IdleEvent))]
 [RequireComponent(typeof(Idle))]
+[RequireComponent(typeof(AnimateEnemy))]
 [RequireComponent(typeof(SortingGroup))]
 [RequireComponent(typeof(SpriteRenderer))]
 [RequireComponent(typeof(Animator))]
@@ -53,5 +54,18 @@ public class Enemy : MonoBehaviour
 		spriteRendererArray = GetComponentsInChildren<SpriteRenderer>();
 
 		animator = GetComponent<Animator>();
+	}
+
+	public void EnemyInitialization(EnemyDetailsSO enemyDetails, int enemySpawnNumber, DungeonLevelSO dungeonLevel)
+	{
+		this.enemyDetails = enemyDetails;
+
+		SetEnemyAnimationSpeed();
+	}
+
+	private void SetEnemyAnimationSpeed()
+	{
+		// Set animator speed to match movement speed
+		animator.speed = enemyMovementAI.moveSpeed / Settings.baseSpeedForEnemyAnimations;
 	}
 }
