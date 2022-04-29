@@ -65,10 +65,23 @@ public class Ammo : MonoBehaviour, IFireable
 
 	private void OnTriggerEnter2D(Collider2D collision)
 	{
+		// Deal damage to collision object
+		DealDamage(collision);
+
 		// Show ammo hit effect
 		AmmoHitEffect();
 
 		DisableAmmo();
+	}
+
+	private void DealDamage(Collider2D collision)
+	{
+		Health health = collision.GetComponent<Health>();
+
+		if (health != null)
+		{
+			health.TakeDamage(ammoDetails.ammoDamage);
+		}
 	}
 
 	public void InitialiseAmmo(AmmoDetailsSO ammoDetails, float aimAngle, float weaponAimAngle, float ammoSpeed, Vector3 weaponAimDirectionVector, bool overrideAmmoMovement = false)

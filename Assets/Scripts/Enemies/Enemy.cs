@@ -4,6 +4,21 @@ using UnityEngine;
 using UnityEngine.Rendering;
 
 #region REQUIRE COMPONENTS
+[RequireComponent(typeof(HealthEvent))]
+[RequireComponent(typeof(Health))]
+[RequireComponent(typeof(DestroyedEvent))]
+[RequireComponent(typeof(Destroyed))]
+[RequireComponent(typeof(EnemyWeaponAI))]
+[RequireComponent(typeof(AimWeaponEvent))]
+[RequireComponent(typeof(AimWeapon))]
+[RequireComponent(typeof(FireWeaponEvent))]
+[RequireComponent(typeof(FireWeapon))]
+[RequireComponent(typeof(SetActiveWeaponEvent))]
+[RequireComponent(typeof(ActiveWeapon))]
+[RequireComponent(typeof(WeaponFiredEvent))]
+[RequireComponent(typeof(ReloadWeaponEvent))]
+[RequireComponent(typeof(ReloadWeapon))]
+[RequireComponent(typeof(WeaponReloadedEvent))]
 [RequireComponent(typeof(EnemyMovementAI))]
 [RequireComponent(typeof(MovementToPositionEvent))]
 [RequireComponent(typeof(MovementToPosition))]
@@ -24,6 +39,18 @@ public class Enemy : MonoBehaviour
 {
     [HideInInspector] public EnemyDetailsSO enemyDetails;
 
+	private HealthEvent healthEvent;
+
+	private Health health;
+
+	[HideInInspector] public AimWeaponEvent aimWeaponEvent;
+
+	[HideInInspector] public FireWeaponEvent fireWeaponEvent;
+
+	private FireWeapon fireWeapon;
+
+	private SetActiveWeaponEvent setActiveWeaponEvent;
+
 	private EnemyMovementAI enemyMovementAI;
 
 	[HideInInspector] public MovementToPositionEvent movementToPositionEvent;
@@ -43,6 +70,17 @@ public class Enemy : MonoBehaviour
 	private void Awake()
 	{
 		// Load components
+		healthEvent = GetComponent<HealthEvent>();
+
+		health = GetComponent<Health>();
+
+		aimWeaponEvent = GetComponent<AimWeaponEvent>();
+
+		fireWeaponEvent = GetComponent<FireWeaponEvent>();
+
+		fireWeapon = GetComponent<FireWeapon>();
+
+		setActiveWeaponEvent = GetComponent<SetActiveWeaponEvent>();
 
 		enemyMovementAI = GetComponent<EnemyMovementAI>();
 
@@ -61,11 +99,45 @@ public class Enemy : MonoBehaviour
 		animator = GetComponent<Animator>();
 	}
 
+	private void OnEnable()
+	{
+		// Subscribe to health event
+		healthEvent.OnHealthChanged += HealthEvent_OnHealthLost;
+
+	}
+
+	private void OnDisable()
+	{
+		// Unsubscribe to health event
+		healthEvent.OnHealthChanged -= HealthEvent_OnHealthLost;
+
+	}
+
+	private void HealthEvent_OnHealthLost(HealthEvent healthEvent, HealthEventArgs healthEventArgs)
+	{
+		if (healthEventArgs.healthAmount <= 0)
+		{
+			EnemyDestroyed();
+		}
+	}
+
+	private void EnemyDestroyed()
+	{
+		DestroyedEvent destroyedEvent = GetComponent<DestroyedEvent>();
+
+		destroyedEvent.CallDestroyedEvent();
+	}
+
+
 	public void EnemyInitialization(EnemyDetailsSO enemyDetails, int enemySpawnNumber, DungeonLevelSO dungeonLevel)
 	{
 		this.enemyDetails = enemyDetails;
 
 		SetEnemyMovementUpdateFrame(enemySpawnNumber);
+
+		SetEnemyStartingHealth(dungeonLevel);
+
+		SetEnemyStartingWeapon();
 
 		SetEnemyAnimationSpeed();
 
@@ -77,6 +149,41 @@ public class Enemy : MonoBehaviour
 	{
 		// Set frame number that enemy should process its updates
 		enemyMovementAI.SetUpdateFrameNumber(enemySpawnNumber % Settings.targetFrameRateToSpreadPathFindingOver);
+	}
+
+	private void SetEnemyStartingHealth(DungeonLevelSO dungeonLevel)
+	{
+		// Get the enemy health for the dungeon level
+		foreach (EnemyHealthDetails enemyHealthDetails in enemyDetails.enemyHealthDetailsArray)
+		{
+			if (enemyHealthDetails.dungeonLevel == dungeonLevel)
+			{
+				health.SetStartingHealth(enemyHealthDetails.enemyHealthAmount);
+
+				return;
+			}
+		}
+
+		health.SetStartingHealth(Settings.defaultEnemyHealth);
+	}
+
+	private void SetEnemyStartingWeapon()
+	{
+		// Process if enemy has a weapon
+		if (enemyDetails.enemyWeapon != null)
+		{
+			Weapon weapon = new Weapon()
+			{
+				weaponDetails = enemyDetails.enemyWeapon,
+				weaponReloadTimer = 0f,
+				weaponClipRemainingAmmo = enemyDetails.enemyWeapon.weaponClipAmmoCapacity,
+				weaponRemainingAmmo = enemyDetails.enemyWeapon.weaponAmmoCapacity,
+				isWeaponReloading = false
+			};
+
+			// Set weapon for enemy
+			setActiveWeaponEvent.CallSetActiveWeaponEvent(weapon);
+		}
 	}
 
 	private void SetEnemyAnimationSpeed()
@@ -104,5 +211,8 @@ public class Enemy : MonoBehaviour
 
 		// Enable / Disable Movement AI
 		enemyMovementAI.enabled = isEnabled;
+
+		// Enable / Disable Fire Weapon
+		fireWeapon.enabled = isEnabled;
 	}
 }

@@ -50,6 +50,53 @@ public class EnemyDetailsSO : ScriptableObject
 	#endregion Tooltip
 	public Color enemyMaterializeColor;
 
+	#region Header ENEMY WEAPON SETTINGS
+	[Space(10)]
+	[Header("ENEMY WEAPON SETTINGS")]
+	#endregion Header ENEMY WEAPON SETTINGS
+	#region Tooltip
+	[Tooltip("The weapon for the enemy - none if the enemy doesn't have a weapon")]
+	#endregion Tooltip
+	public WeaponDetailsSO enemyWeapon;
+	#region Tooltip
+	[Tooltip("The minimum time delay interval in seconds between bursts of enemy shooting. This value should be greater than zero. A random value will be selected between the min and max values")]
+	#endregion Tooltip
+	public float firingIntervalMin = 0.1f;
+	#region Tooltip
+	[Tooltip("The maximum time delay interval in seconds between bursts of enemy shooting. This value should be greater than zero. A random value will be selected between the min and max values")]
+	#endregion Tooltip
+	public float firingIntervalMax = 1f;
+	#region Tooltip
+	[Tooltip("The minimum firing duration that the enemy shoots for during a firing burst. This value should be greater than zero. A random value will be selected between the min and max values")]
+	#endregion Tooltip
+	public float firingDurationMin = 1f;
+	#region Tooltip
+	[Tooltip("The maximum firing duration that the enemy shoots for during a firing burst. This value should be greater than zero. A random value will be selected between the min and max values")]
+	#endregion Tooltip
+	public float firingDurationMax = 2f;
+	#region Tooltip
+	[Tooltip("Select this if the line of sight is required of the player before the enemy fires. If line of sight isn't selected the enemy will fire regardless of obstacles whenever the player is in range")]
+	#endregion
+	public bool firingLineOfSightRequired;
+
+	#region Header ENEMY HEALTH
+	[Space(10)]
+	[Header("ENEMY HEALTH")]
+	#endregion Header ENEMY HEALTH
+	#region Tooltip
+	[Tooltip("The health of the enemy for each level")]
+	#endregion Tooltip
+	public EnemyHealthDetails[] enemyHealthDetailsArray;
+	#region Tooltip
+	[Tooltip("Select if has immunity period immediately after being hit. If so, specify the immunity time in seconds in the other field")]
+	#endregion Tooltip
+	public bool isImmuneAfterHit = false;
+	#region Tooltip
+	[Tooltip("Immunity time in seconds after being hit")]
+	#endregion Tooltip
+	public float hitImmunityTime;
+
+
 	#region Validation
 
 #if UNITY_EDITOR
@@ -61,6 +108,17 @@ public class EnemyDetailsSO : ScriptableObject
 		HelperUtilities.ValidateCheckNullValue(this, nameof(enemyPrefab), enemyPrefab);
 
 		HelperUtilities.ValidateCheckPositiveValue(this, nameof(chaseDistance), chaseDistance, false);
+
+		HelperUtilities.ValidateCheckPositiveRange(this, nameof(firingIntervalMin), firingIntervalMin, nameof(firingIntervalMax), firingIntervalMax, false);
+
+		HelperUtilities.ValidateCheckPositiveRange(this, nameof(firingDurationMin), firingDurationMin, nameof(firingDurationMax), firingDurationMax, false);
+
+		HelperUtilities.ValidateCheckEnumerableValues(this, nameof(enemyHealthDetailsArray), enemyHealthDetailsArray);
+
+		if (isImmuneAfterHit)
+		{
+			HelperUtilities.ValidateCheckPositiveValue(this, nameof(hitImmunityTime), hitImmunityTime, false);
+		}
 	}
 
 #endif

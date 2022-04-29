@@ -23,6 +23,8 @@ public static class Settings
 
 	public const int maxChildCorridors = 3;
 
+	public const float doorUnlockDelay = 1f;
+
 	#endregion ROOM SETTINGS
 
 	#region ANIMATOR PARAMETERS
@@ -83,6 +85,10 @@ public static class Settings
 	public const float enemyPathRebuildCooldown = 2f;
 
 	#endregion
+
+	#region ENEMY PARAMETERS
+	public const int defaultEnemyHealth = 20;
+	#endregion ENEMY PARAMETERS
 
 	#region UI PARAMETERS
 	public const float uiAmmoIconSpacing = 4f;

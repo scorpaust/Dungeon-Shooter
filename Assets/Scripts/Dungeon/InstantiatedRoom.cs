@@ -280,6 +280,11 @@ public class InstantiatedRoom : MonoBehaviour
         boxCollider2D.enabled = false;
 	}
 
+    public void EnableRoomCollider()
+	{
+        boxCollider2D.enabled = true;
+	}
+
     public void LockDoors()
 	{
         Door[] doorArray = GetComponentsInChildren<Door>();
@@ -292,5 +297,24 @@ public class InstantiatedRoom : MonoBehaviour
 
         // Disable room trigger collider
         DisableRoomCollider();
+	}
+
+    public void UnlockDoors(float doorUnlockDelay)
+	{
+        StartCoroutine(UnlockDoorsRoutine(doorUnlockDelay));
+	}
+
+    private IEnumerator UnlockDoorsRoutine(float doorUnlockDelay)
+	{
+        if (doorUnlockDelay > 0f)
+            yield return new WaitForSeconds(doorUnlockDelay);
+
+        Door[] doorArray = GetComponentsInChildren<Door>();
+
+        // Trigger open doors
+        foreach (Door door in doorArray)
+		{
+            door.UnlockDoor();
+		}
 	}
 }

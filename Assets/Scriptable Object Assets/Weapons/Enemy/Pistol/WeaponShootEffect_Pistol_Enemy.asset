@@ -1,0 +1,55 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39e1acb779d7cba4ba8a7262a19e62c7, type: 3}
+  m_Name: WeaponShootEffect_Pistol_Enemy
+  m_EditorClassIdentifier: 
+  colorGradient:
+    serializedVersion: 2
+    key0: {r: 0.8867924, g: 0.095371954, b: 0.095371954, a: 1}
+    key1: {r: 1, g: 1, b: 1, a: 1}
+    key2: {r: 0.94856143, g: 0.9716981, b: 0.17783903, a: 0}
+    key3: {r: 1, g: 1, b: 1, a: 0}
+    key4: {r: 0.5370595, g: 0.69045955, b: 0.7169812, a: 0}
+    key5: {r: 1, g: 1, b: 1, a: 0}
+    key6: {r: 0.5660378, g: 0.5521538, b: 0.5521538, a: 0}
+    key7: {r: 1, g: 1, b: 1, a: 0}
+    ctime0: 0
+    ctime1: 2506
+    ctime2: 5590
+    ctime3: 14456
+    ctime4: 18890
+    ctime5: 32768
+    ctime6: 43369
+    ctime7: 65535
+    atime0: 0
+    atime1: 45219
+    atime2: 65535
+    atime3: 0
+    atime4: 0
+    atime5: 0
+    atime6: 0
+    atime7: 0
+    m_Mode: 0
+    m_NumColorKeys: 8
+    m_NumAlphaKeys: 3
+  duration: 0.5
+  startParticleSize: 0.2
+  startParticleSpeed: 0.4
+  startLifeTime: 1.1
+  maxParticleNumber: 100
+  emissionRate: 100
+  burstParticleNumber: 30
+  effectGravity: -0.03
+  sprite: {fileID: 21300000, guid: ecf6e010769abce4cb1e7c60e0f3b3d8, type: 3}
+  velocityOverLifetimeMin: {x: 0, y: 0, z: 0}
+  velocityOverLifetimeMax: {x: 0, y: 0, z: 0}
+  weaponShootEffectPrefab: {fileID: 6053008767055699997, guid: 930d994f3ab67b645a65364c42a326eb, type: 3}
