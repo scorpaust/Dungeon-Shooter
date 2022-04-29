@@ -27,6 +27,8 @@ public class EnemyMovementAI : MonoBehaviour
 
 	private bool chasePlayer = false;
 
+	[HideInInspector] public int updateFrameNumber = 1; // default value; this is set by the enemy spawner
+
 	private void Awake()
 	{
 		enemy = GetComponent<Enemy>();
@@ -62,6 +64,9 @@ public class EnemyMovementAI : MonoBehaviour
 		// If not close enough to chase player then return
 		if (!chasePlayer)
 			return;
+
+		// Only process an AStar Path rebuild on certain frames to spread the load between enemies
+		if (Time.frameCount % Settings.targetFrameRateToSpreadPathFindingOver != updateFrameNumber) return;
 
 		// If the movement cooldown timer reached or player has moved more than required distance
 		// then rebuild the enemy path and move the enemy
@@ -137,6 +142,11 @@ public class EnemyMovementAI : MonoBehaviour
 			// Trigger the idle event - no path
 			enemy.idleEvent.CallIdleEvent();
 		}
+	}
+
+	public void SetUpdateFrameNumber(int updateFrameNumber)
+	{
+		this.updateFrameNumber = updateFrameNumber;
 	}
 
 	private Vector3Int GetNearestNonObstaclePlayerPosition(Room currentRoom)

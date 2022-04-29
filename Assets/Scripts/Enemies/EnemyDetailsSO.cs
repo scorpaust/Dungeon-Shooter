@@ -23,6 +23,33 @@ public class EnemyDetailsSO : ScriptableObject
 	#endregion Tooltip
 	public float chaseDistance = 50f;
 
+	#region Header ENEMY MATERIAL
+	[Space(10)]
+	[Header("ENEMY MATERIAL")]
+	#endregion Header ENEMY MATERIAL
+	#region Tooltip
+	[Tooltip("This is the standard lit shader material for the enemy (used after the enemy materializes)")]
+	#endregion Tooltip
+	public Material enemyStandardMaterial;
+
+	#region Header ENEMY MATERIALIZE SETTINGS
+	[Space(10)]
+	[Header("ENEMY MATERIALIZE SETTINGS")]
+	#endregion Header ENEMY MATERIALIZE SETTINGS
+	#region Tooltip
+	[Tooltip("The time in seconds that it takes the enemy to materialize")]
+	#endregion Tooltip
+	public float enemyMaterializeTime;
+	#region Tooltip
+	[Tooltip("The shader to be used when enemy materializes")]
+	#endregion Tooltip
+	public Shader enemyMaterializeShader;
+	[ColorUsage(true, true)]
+	#region Tooltip
+	[Tooltip("The color to use when the enemy materializes. This is an HDR color so intensity can be set to cause glowing / bloom")]
+	#endregion Tooltip
+	public Color enemyMaterializeColor;
+
 	#region Validation
 
 #if UNITY_EDITOR

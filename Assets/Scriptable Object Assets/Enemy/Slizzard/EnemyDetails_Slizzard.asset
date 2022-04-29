@@ -10,7 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 336a4596847364540b1e822f0c90e7f1, type: 3}
-  m_Name: Slizzard
+  m_Name: EnemyDetails_Slizzard
   m_EditorClassIdentifier: 
   enemyName: Slizzard
   enemyPrefab: {fileID: 5573243148828842462, guid: 9936ff9b0dde5464b8b26fe395e7fa60, type: 3}
+  chaseDistance: 50
+  enemyStandardMaterial: {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  enemyMaterializeTime: 2
+  enemyMaterializeShader: {fileID: -6465566751694194690, guid: 5fec8f8e6ea244648a3c6ede24a56288, type: 3}
+  enemyMaterializeColor: {r: 8.47419, g: 0, b: 6.122713, a: 1}
