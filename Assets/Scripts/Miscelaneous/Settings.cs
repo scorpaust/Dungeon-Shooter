@@ -91,6 +91,7 @@ public static class Settings
 	#endregion ENEMY PARAMETERS
 
 	#region UI PARAMETERS
+	public const float uiHeartSpacing = 16f;
 	public const float uiAmmoIconSpacing = 4f;
 	#endregion UI PARAMETERS
 }

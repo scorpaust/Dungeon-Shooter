@@ -12,7 +12,23 @@ public class Health : MonoBehaviour
     
     private HealthEvent healthEvent;
 
+	private Player player;
+
+	private Coroutine immunityCoroutine;
+
+	private bool isImmuneAfterHit = false;
+
+	private float immunityTime = 0f;
+
+	private SpriteRenderer spriteRenderer = null;
+
+	private const float spriteFlashInterval = 0.2f;
+
+	private WaitForSeconds waitForSecondsSpriteFlashInterval = new WaitForSeconds(spriteFlashInterval);
+
     [HideInInspector] public bool isDamageable = true;
+
+	[HideInInspector] public Enemy enemy;
 
 	private void Awake()
 	{
@@ -24,16 +40,103 @@ public class Health : MonoBehaviour
 	{
 		// Trigger a health event for UI update
 		CallHealthEvent(0);
+
+		// Attempt to load enemy / player components
+		player = GetComponent<Player>();
+		enemy = GetComponent<Enemy>();
+
+		if (player != null)
+		{
+			if (player.playerDetails.isImmuneAfterHit)
+			{
+				isImmuneAfterHit = true;
+
+				immunityTime = player.playerDetails.hitImmunityTime;
+
+				spriteRenderer = player.spriteRenderer;
+			}
+		}
+		else if (enemy != null)
+		{
+			if (enemy.enemyDetails.isImmuneAfterHit)
+			{
+				isImmuneAfterHit = true;
+
+				immunityTime = enemy.enemyDetails.hitImmunityTime;
+
+				spriteRenderer = enemy.spriteRendererArray[0];
+			}
+		}
 	}
 
 	public void TakeDamage(int damageAmount)
 	{
-		if (isDamageable)
+		bool isRolling = false;
+
+		if (player != null)
+			isRolling = player.playerControl.isPlayerRolling;
+
+		if (isDamageable && !isRolling)
 		{
 			currentHealth -= damageAmount;
 
 			CallHealthEvent(damageAmount);
+
+			PostHitImmunity();
 		}
+
+		if (isDamageable && isRolling)
+		{
+			Debug.Log("Dodged bullet by rolling!");
+		}
+
+		if (!isDamageable && !isRolling)
+		{
+			Debug.Log("Avoided damage due to immunity");
+		}
+	}
+
+	private void PostHitImmunity()
+	{
+		// Check if game object is active - if not return
+		if (gameObject.activeSelf == false)
+			return;
+
+		// If there is post hit immunity then
+		if (isImmuneAfterHit)
+		{
+			if  (immunityCoroutine != null)
+			{
+				StopCoroutine(immunityCoroutine);
+			}
+
+			// Flash red and give period of immunity
+			immunityCoroutine = StartCoroutine(PostHitImmunityRoutine(immunityTime, spriteRenderer));
+		}
+	}
+
+	private IEnumerator PostHitImmunityRoutine(float immunityTime, SpriteRenderer spriteRenderer)
+	{
+		int iterations = Mathf.RoundToInt(immunityTime / spriteFlashInterval / 2f);
+
+		isDamageable = false;
+		
+		while (iterations > 0)
+		{
+			spriteRenderer.color = new Color(1f, 0f, 0f, 0.8f);
+
+			yield return waitForSecondsSpriteFlashInterval;
+
+			spriteRenderer.color = Color.white;
+
+			yield return waitForSecondsSpriteFlashInterval;
+
+			iterations--;
+
+			yield return null;
+		}
+
+		isDamageable = true;
 	}
 
 	private void CallHealthEvent(int damageAmount)
