@@ -17,7 +17,7 @@ MonoBehaviour:
   weaponShootPosition: {x: 1.15, y: 0.3, z: 0}
   weaponCurrentAmmo: {fileID: 11400000, guid: 1a5f8ddb6356a464494c57621fe9e4ed, type: 2}
   weaponShootEffect: {fileID: 11400000, guid: 0ebb5f9f7f6f9704ca008585fa2b81cb, type: 2}
-  weaponFiringSoundEffect: {fileID: 11400000, guid: 7bf8ca03356ca9d409ec1177fef23be9, type: 2}
+  weaponFiringSoundEffect: {fileID: 11400000, guid: 2f8539a2c6954ed4f9fbfb84f01c733b, type: 2}
   weaponReloadingSoundEffect: {fileID: 11400000, guid: 44e10b4819e50a24bb6dbd7709eb669e, type: 2}
   hasInfiniteAmmo: 0
   hasInfiniteClipCapacity: 0
