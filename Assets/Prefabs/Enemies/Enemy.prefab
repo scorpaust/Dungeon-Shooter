@@ -37,6 +37,8 @@ GameObject:
   - component: {fileID: 7654321647112018593}
   - component: {fileID: 7790572901618841223}
   - component: {fileID: 553575112410196502}
+  - component: {fileID: 3703546669630600234}
+  - component: {fileID: 7886189011332116799}
   m_Layer: 15
   m_Name: Enemy
   m_TagString: Untagged
@@ -480,6 +482,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isDamageable: 1
+  enemy: {fileID: 0}
 --- !u!114 &553575112410196502
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -492,6 +495,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9de7f575d8e66474a8dde70e036b12f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &3703546669630600234
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2462520528740514806}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 094f6654fa7cf054b922b36a0ab49c5e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &7886189011332116799
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2462520528740514806}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8109a7b0d9fd9941b6ed7caba58b58b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  contactDamageAmount: 10
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 132096
 --- !u!1 &4433601780773251724
 GameObject:
   m_ObjectHideFlags: 0
