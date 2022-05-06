@@ -24,6 +24,8 @@ public class PlayerControl : MonoBehaviour
 
 	private float playerRollCooldownTimer = 0f;
 
+	private bool isPlayerMovementDisabled = false;
+
 	private void Awake()
 	{
 		player = GetComponent<Player>();
@@ -63,6 +65,9 @@ public class PlayerControl : MonoBehaviour
 
 	private void Update()
 	{
+		// If player movement is disabled then return
+		if (isPlayerMovementDisabled) return;
+
 		if (isPlayerRolling) return;
 
 		MovementInput();
@@ -333,6 +338,18 @@ public class PlayerControl : MonoBehaviour
 
 			isPlayerRolling = false;
 		}
+	}
+
+	public void EnablePlayer()
+	{
+		isPlayerMovementDisabled = false;
+	}
+
+	public void DisablePlayer()
+	{
+		isPlayerMovementDisabled = true;
+
+		player.idleEvent.CallIdleEvent();
 	}
 
 	private void SetCurrentWeaponToFirstInTheList()
