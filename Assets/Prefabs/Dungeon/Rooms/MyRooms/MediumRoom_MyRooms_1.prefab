@@ -67330,6 +67330,7 @@ MonoBehaviour:
   roomColliderBounds:
     m_Center: {x: 0, y: 0, z: 0}
     m_Extent: {x: 0, y: 0, z: 0}
+  environmentGameObject: {fileID: 7400580999177057133}
 --- !u!114 &3040135137037678965
 MonoBehaviour:
   m_ObjectHideFlags: 0

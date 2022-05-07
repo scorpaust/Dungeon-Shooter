@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public static class Settings 
 {
@@ -59,6 +60,11 @@ public static class Settings
 
 	// Animator parameters - Enemy
 	public static float baseSpeedForEnemyAnimations = 3f;
+
+	// Animator parameters - Damageable Decoration
+	public static int destroy = Animator.StringToHash("destroy");
+
+	public static string stateDestroyed = "Destroyed";
 
 	#endregion ANIMATOR PARAMETERS
 

@@ -1,0 +1,115 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &7136593535009042905
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 116771724459896582, guid: 1aeeb051e084c3448b548d624ddaa461, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 0d0efbfdc7d64134db4ba17fef357efe, type: 2}
+    - target: {fileID: 469437335192299314, guid: 1aeeb051e084c3448b548d624ddaa461, type: 3}
+      propertyPath: destroySoundEffect
+      value: 
+      objectReference: {fileID: 11400000, guid: d41b742457ed3cb48938fed5677ee83c, type: 2}
+    - target: {fileID: 1768078430852872140, guid: 1aeeb051e084c3448b548d624ddaa461, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1768078430852872140, guid: 1aeeb051e084c3448b548d624ddaa461, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1768078430852872140, guid: 1aeeb051e084c3448b548d624ddaa461, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1768078430852872140, guid: 1aeeb051e084c3448b548d624ddaa461, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1768078430852872140, guid: 1aeeb051e084c3448b548d624ddaa461, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1768078430852872140, guid: 1aeeb051e084c3448b548d624ddaa461, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1768078430852872140, guid: 1aeeb051e084c3448b548d624ddaa461, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1768078430852872140, guid: 1aeeb051e084c3448b548d624ddaa461, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1768078430852872140, guid: 1aeeb051e084c3448b548d624ddaa461, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1768078430852872140, guid: 1aeeb051e084c3448b548d624ddaa461, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1768078430852872140, guid: 1aeeb051e084c3448b548d624ddaa461, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4046308074295065459, guid: 1aeeb051e084c3448b548d624ddaa461, type: 3}
+      propertyPath: m_Size.y
+      value: 0.5017881
+      objectReference: {fileID: 0}
+    - target: {fileID: 4046308074295065459, guid: 1aeeb051e084c3448b548d624ddaa461, type: 3}
+      propertyPath: m_Offset.y
+      value: 0.24910596
+      objectReference: {fileID: 0}
+    - target: {fileID: 4046308074295065459, guid: 1aeeb051e084c3448b548d624ddaa461, type: 3}
+      propertyPath: m_SpriteTilingProperty.pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4046308074295065459, guid: 1aeeb051e084c3448b548d624ddaa461, type: 3}
+      propertyPath: m_SpriteTilingProperty.newSize.x
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4046308074295065459, guid: 1aeeb051e084c3448b548d624ddaa461, type: 3}
+      propertyPath: m_SpriteTilingProperty.newSize.y
+      value: 1.625
+      objectReference: {fileID: 0}
+    - target: {fileID: 4046308074295065459, guid: 1aeeb051e084c3448b548d624ddaa461, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4046308074295065459, guid: 1aeeb051e084c3448b548d624ddaa461, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 1.625
+      objectReference: {fileID: 0}
+    - target: {fileID: 4046308074295065459, guid: 1aeeb051e084c3448b548d624ddaa461, type: 3}
+      propertyPath: m_SpriteTilingProperty.adaptiveTilingThreshold
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4479805000605235425, guid: 1aeeb051e084c3448b548d624ddaa461, type: 3}
+      propertyPath: m_Size.x
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4479805000605235425, guid: 1aeeb051e084c3448b548d624ddaa461, type: 3}
+      propertyPath: m_Size.y
+      value: 1.625
+      objectReference: {fileID: 0}
+    - target: {fileID: 4479805000605235425, guid: 1aeeb051e084c3448b548d624ddaa461, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 3078254798106308436, guid: a0a8191ae565ae547b83608c207fabb6, type: 3}
+    - target: {fileID: 4479805000605235425, guid: 1aeeb051e084c3448b548d624ddaa461, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6881986507715784379, guid: 1aeeb051e084c3448b548d624ddaa461, type: 3}
+      propertyPath: m_Name
+      value: BottleLime
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 1aeeb051e084c3448b548d624ddaa461, type: 3}
