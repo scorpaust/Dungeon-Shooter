@@ -45,7 +45,7 @@ PrefabInstance:
       objectReference: {fileID: 9100000, guid: e87ce176a15556c459b355908992b930, type: 2}
     - target: {fileID: 4042953045594680872, guid: 1aee87c3c932f8341b732e37e1b2cfc1, type: 3}
       propertyPath: m_Mass
-      value: 0.6
+      value: 0.7554301
       objectReference: {fileID: 0}
     - target: {fileID: 4042953045594680874, guid: 1aee87c3c932f8341b732e37e1b2cfc1, type: 3}
       propertyPath: m_RootOrder
@@ -94,6 +94,10 @@ PrefabInstance:
     - target: {fileID: 4042953045594680877, guid: 1aee87c3c932f8341b732e37e1b2cfc1, type: 3}
       propertyPath: m_Name
       value: TheGeneral
+      objectReference: {fileID: 0}
+    - target: {fileID: 9147698271065983597, guid: 1aee87c3c932f8341b732e37e1b2cfc1, type: 3}
+      propertyPath: contactDamageAmount
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1aee87c3c932f8341b732e37e1b2cfc1, type: 3}

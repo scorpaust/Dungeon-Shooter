@@ -54,6 +54,14 @@ public static class Settings
 
 	public static int rollDown = Animator.StringToHash("rollDown");
 
+	public static int flipUp = Animator.StringToHash("flipUp");
+
+	public static int flipRight = Animator.StringToHash("flipRight");
+
+	public static int flipLeft = Animator.StringToHash("flipLeft");
+
+	public static int flipDown = Animator.StringToHash("flipDown");
+
 	public static int open = Animator.StringToHash("open");
 
 	public static float baseSpeedForPlayerAnimations = 8f;

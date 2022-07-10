@@ -15,8 +15,10 @@ public class InstantiatedRoom : MonoBehaviour
     [HideInInspector] public Tilemap frontTilemap;
     [HideInInspector] public Tilemap collisionTilemap;
     [HideInInspector] public Tilemap minimapTilemap;
+    [HideInInspector] public int[,] aStarItemObstacles;
     [HideInInspector] public int[,] aStarMovementPenalty;
     [HideInInspector] public Bounds roomColliderBounds;
+    [HideInInspector] public List<MoveItem> moveableItemsList = new List<MoveItem>();
 
     #region Header OBJECT REFERENCES
     [Space(10)]
@@ -36,6 +38,12 @@ public class InstantiatedRoom : MonoBehaviour
         roomColliderBounds = boxCollider2D.bounds;
 	}
 
+	private void Start()
+	{
+        // Update moveable item obstacles array
+        UpdateMoveableObjects();
+	}
+
 	private void OnTriggerEnter2D(Collider2D collision)
 	{
 		if (collision.CompareTag(Settings.playertag) && room != GameManager.Instance.GetCurrentRoom())
@@ -53,6 +61,8 @@ public class InstantiatedRoom : MonoBehaviour
         BlockOffUnusedDoorways();
 
         AddObstaclesAndPreferedPaths();
+
+        CreateItemObstaclesArray();
 
         AddDoorsToRooms();
 
@@ -338,6 +348,62 @@ public class InstantiatedRoom : MonoBehaviour
             door.UnlockDoor();
 		}
 	}
+
+    private void CreateItemObstaclesArray()
+	{
+        // This array will be populated during gameplay with any moveable obstacles
+        aStarItemObstacles = new int[room.templateUpperBounds.x - room.templateLowerBounds.x + 1, room.templateUpperBounds.y - room.templateLowerBounds.y + 1];
+	}
+
+    private void InitializeItemObjectsArray()
+	{
+        for (int x = 0; x < (room.templateUpperBounds.x - room.templateLowerBounds.x + 1); x++)
+		{
+            for (int y = 0; y < (room.templateUpperBounds.y - room.templateLowerBounds.y + 1); y++)
+			{
+                // Set default movement penalty for grid squares
+                aStarItemObstacles[x, y] = Settings.defaultAStarMovementPenalty;
+			}
+		}
+	}
+
+    public void UpdateMoveableObjects()
+	{
+        InitializeItemObjectsArray();
+
+        foreach (MoveItem moveItem in moveableItemsList)
+		{
+            Vector3Int colliderBoundsMin = grid.WorldToCell(moveItem.boxCollider2D.bounds.min);
+
+            Vector3Int colliderBoundsMax = grid.WorldToCell(moveItem.boxCollider2D.bounds.max);
+
+            // Loop through and add moveable item collider bounds to obstacle array
+            for (int i = colliderBoundsMin.x; i <= colliderBoundsMax.x; i++)
+			{
+                for (int j = colliderBoundsMin.y; j <= colliderBoundsMax.y; j++)
+				{
+                    aStarItemObstacles[i - room.templateLowerBounds.x, j - room.templateLowerBounds.y] = 0;
+				}
+
+            }
+        }
+    }
+
+	//private void OnDrawGizmos()
+	//{
+	//	for (int i = 0; i < (room.templateUpperBounds.x - room.templateLowerBounds.x + 1); i++)
+	//	{
+ //           for (int j = 0; i < (room.templateUpperBounds.y - room.templateLowerBounds.y + 1); j++)
+	//		{
+ //               if (aStarItemObstacles[i, j] == 0)
+	//			{
+ //                   Vector3 worldCellPos = grid.CellToWorld(new Vector3Int(i + room.templateLowerBounds.x, j + room.templateLowerBounds.y, 0));
+
+ //                   Gizmos.DrawWireCube(new Vector3(worldCellPos.x + 0.5f, worldCellPos.y + 0.5f, 0), Vector3.one);
+	//			}
+	//		}
+	//	}
+	//}
 
 	#region Validation
 
