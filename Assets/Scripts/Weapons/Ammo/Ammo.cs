@@ -51,23 +51,26 @@ public class Ammo : MonoBehaviour, IFireable
 			isAmmoMaterialSet = true;
 		}
 
-		// Calculate distance vector to move ammo
-		Vector3 distanceVector = fireDirectionVector * ammoSpeed * Time.deltaTime;
-
-		transform.position += distanceVector;
-
-		// Disable after max range reached
-		ammoRange -= distanceVector.magnitude;
-
-		if (ammoRange < 0f)
+		if (!overrideAmmoMovement)
 		{
-			if (ammoDetails.isPlayerAmmo)
-			{
-				// no multiplier
-				StaticEventHandler.CallMultiplierEvent(false);
-			}
+			// Calculate distance vector to move ammo
+			Vector3 distanceVector = fireDirectionVector * ammoSpeed * Time.deltaTime;
 
-			DisableAmmo();
+			transform.position += distanceVector;
+
+			// Disable after max range reached
+			ammoRange -= distanceVector.magnitude;
+
+			if (ammoRange < 0f)
+			{
+				if (ammoDetails.isPlayerAmmo)
+				{
+					// no multiplier
+					StaticEventHandler.CallMultiplierEvent(false);
+				}
+
+				DisableAmmo();
+			}
 		}
 	}
 
