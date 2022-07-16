@@ -1,0 +1,122 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &69029870138209058
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7054192232504361139}
+  - component: {fileID: 1195992494935416038}
+  m_Layer: 0
+  m_Name: ChestSpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7054192232504361139
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 69029870138209058}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1195992494935416038
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 69029870138209058}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09513607cedc0f2449ebfe18b8067215, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  chestPrefab: {fileID: 9035674979718927762, guid: 52c1b074f4b262e41b25361ba31c9ec0, type: 3}
+  chestSpawnChanceMin: 0
+  chestSpawnChanceMax: 100
+  chestSpawnChanceByLevelList:
+  - dungeonLevel: {fileID: 11400000, guid: be084ebf838302d41843e0b5effb2b75, type: 2}
+    min: 0
+    max: 100
+  - dungeonLevel: {fileID: 11400000, guid: 4f51dbd269c9e2548a290c773d660b23, type: 2}
+    min: 0
+    max: 100
+  - dungeonLevel: {fileID: 11400000, guid: 6b5635061b434b145965378a58e2b8d7, type: 2}
+    min: 0
+    max: 100
+  - dungeonLevel: {fileID: 11400000, guid: 314ce2471ed974b4aa6acebea8385b22, type: 2}
+    min: 0
+    max: 100
+  - dungeonLevel: {fileID: 11400000, guid: e3f05cd38b1e05e40999560ff8d123e1, type: 2}
+    min: 0
+    max: 100
+  - dungeonLevel: {fileID: 11400000, guid: ae3ba34a331652c4c83044ee180930a2, type: 2}
+    min: 0
+    max: 100
+  chestSpawnEvent: 0
+  chestSpawnPosition: 0
+  numberOfItemsToSpawnMin: 2
+  numberOfItemsToSpawnMax: 3
+  weaponSpawnByLevelList:
+  - dungeonLevel: {fileID: 11400000, guid: be084ebf838302d41843e0b5effb2b75, type: 2}
+    spawnableObjectRatioList: []
+  - dungeonLevel: {fileID: 11400000, guid: 4f51dbd269c9e2548a290c773d660b23, type: 2}
+    spawnableObjectRatioList: []
+  - dungeonLevel: {fileID: 11400000, guid: 6b5635061b434b145965378a58e2b8d7, type: 2}
+    spawnableObjectRatioList: []
+  - dungeonLevel: {fileID: 11400000, guid: 314ce2471ed974b4aa6acebea8385b22, type: 2}
+    spawnableObjectRatioList: []
+  - dungeonLevel: {fileID: 11400000, guid: e3f05cd38b1e05e40999560ff8d123e1, type: 2}
+    spawnableObjectRatioList: []
+  - dungeonLevel: {fileID: 11400000, guid: ae3ba34a331652c4c83044ee180930a2, type: 2}
+    spawnableObjectRatioList: []
+  healthSpawnByLevelList:
+  - dungeonLevel: {fileID: 11400000, guid: be084ebf838302d41843e0b5effb2b75, type: 2}
+    min: 30
+    max: 50
+  - dungeonLevel: {fileID: 11400000, guid: 4f51dbd269c9e2548a290c773d660b23, type: 2}
+    min: 40
+    max: 60
+  - dungeonLevel: {fileID: 11400000, guid: 6b5635061b434b145965378a58e2b8d7, type: 2}
+    min: 50
+    max: 70
+  - dungeonLevel: {fileID: 11400000, guid: 314ce2471ed974b4aa6acebea8385b22, type: 2}
+    min: 40
+    max: 60
+  - dungeonLevel: {fileID: 11400000, guid: e3f05cd38b1e05e40999560ff8d123e1, type: 2}
+    min: 50
+    max: 70
+  - dungeonLevel: {fileID: 0}
+    min: 60
+    max: 80
+  ammoSpawnByLevelList:
+  - dungeonLevel: {fileID: 11400000, guid: be084ebf838302d41843e0b5effb2b75, type: 2}
+    min: 30
+    max: 50
+  - dungeonLevel: {fileID: 11400000, guid: 4f51dbd269c9e2548a290c773d660b23, type: 2}
+    min: 40
+    max: 60
+  - dungeonLevel: {fileID: 11400000, guid: 6b5635061b434b145965378a58e2b8d7, type: 2}
+    min: 50
+    max: 70
+  - dungeonLevel: {fileID: 11400000, guid: 314ce2471ed974b4aa6acebea8385b22, type: 2}
+    min: 40
+    max: 60
+  - dungeonLevel: {fileID: 11400000, guid: e3f05cd38b1e05e40999560ff8d123e1, type: 2}
+    min: 50
+    max: 70
+  - dungeonLevel: {fileID: 11400000, guid: ae3ba34a331652c4c83044ee180930a2, type: 2}
+    min: 60
+    max: 80

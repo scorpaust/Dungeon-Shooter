@@ -21,6 +21,9 @@ public class ActivateRooms : MonoBehaviour
 
 	private void EnableRooms()
 	{
+		if (GameManager.Instance.gameState == GameState.dungeonOverviewMap)
+			return;
+
 		HelperUtilities.CameraWorldPositionBounds(out Vector2Int minimapCameraWorldPositionLowerBounds, out Vector2Int minimapCameraWorldPositionUpperBounds, miniMapCamera);
 
 		HelperUtilities.CameraWorldPositionBounds(out Vector2Int mainCameraWorldPositionLowerBounds, out Vector2Int mainCameraWorldPositionUpperBounds, cameraMain);

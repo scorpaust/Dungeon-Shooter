@@ -151,6 +151,14 @@ public class GameResources : MonoBehaviour
 	#endregion
 	public Sprite bulletIcon;
 
+	#region Header MINIMAP
+	[Space(10)]
+	[Header("MINIMAP")]
+	#endregion Header MINIMAP
+	#region Tooltip
+	[Tooltip("Populate with the minimap skull prefab")]
+	#endregion
+	public GameObject minimapSkullPrefab;
 
 	#region Validation
 
@@ -195,6 +203,8 @@ public class GameResources : MonoBehaviour
 		HelperUtilities.ValidateCheckNullValue(this, nameof(variableLitShader), variableLitShader);
 
 		HelperUtilities.ValidateCheckNullValue(this, nameof(materializeShader), materializeShader);
+
+		HelperUtilities.ValidateCheckNullValue(this, nameof(minimapSkullPrefab), minimapSkullPrefab);
 	}
 
 #endif
