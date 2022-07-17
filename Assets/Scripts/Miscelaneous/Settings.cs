@@ -86,6 +86,12 @@ public static class Settings
 
 	#endregion
 
+	#region AUDIO
+	public const float musicFadeOutTime = 0.5f;
+
+	public const float musicFadeInTime = 0.5f;
+	#endregion
+
 	#region FIRING CONTROL
 
 	public const float useAimAngleDistance = 3.5f; // if the target distance is less than this, then the aim angle will be used (calculated from player),

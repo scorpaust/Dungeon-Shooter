@@ -40,6 +40,31 @@ public class GameResources : MonoBehaviour
 	#endregion Tooltip
 	public CurrentPlayerSO currentPlayer;
 
+	#region Header MUSIC
+	[Space(10)]
+	[Header("MUSIC")]
+	#endregion Header MUSIC
+
+	#region Tooltip
+	[Tooltip("Populate with the music master mixer group")]
+	#endregion Tooltip
+	public AudioMixerGroup musicMasterMixerGroup;
+
+	#region Tooltip
+	[Tooltip("Music on full snapshot")]
+	#endregion Tooltip
+	public AudioMixerSnapshot musicOnFullSnapshot;
+
+	#region
+	[Tooltip("Music low snapshot")]
+	#endregion Tooltip
+	public AudioMixerSnapshot musicLowSnapshot;
+
+	#region
+	[Tooltip("Music off snapshot")]
+	#endregion Tooltip
+	public AudioMixerSnapshot musicOffSnapshot;
+
 	#region Header SOUNDS
 	[Header("SOUNDS")]
 	#endregion
@@ -77,8 +102,6 @@ public class GameResources : MonoBehaviour
 	[Tooltip("Populate with the ammo pickup sound effect")]
 	#endregion Tooltip
 	public SoundEffectSO ammoPickup;
-
-
 
 	#region Header MATERIALS
 	[Space(10)]
@@ -195,6 +218,14 @@ public class GameResources : MonoBehaviour
 		HelperUtilities.ValidateCheckEnumerableValues(this, nameof(enemyUnwalkableCollisionTilesArray), enemyUnwalkableCollisionTilesArray);
 
 		HelperUtilities.ValidateCheckNullValue(this, nameof(preferedEnemyPathTile), preferedEnemyPathTile);
+
+		HelperUtilities.ValidateCheckNullValue(this, nameof(musicMasterMixerGroup), musicMasterMixerGroup);
+
+		HelperUtilities.ValidateCheckNullValue(this, nameof(musicOnFullSnapshot), musicOnFullSnapshot);
+
+		HelperUtilities.ValidateCheckNullValue(this, nameof(musicLowSnapshot), musicLowSnapshot);
+
+		HelperUtilities.ValidateCheckNullValue(this, nameof(musicOffSnapshot), musicOffSnapshot);
 
 		HelperUtilities.ValidateCheckNullValue(this, nameof(heartPrefab), heartPrefab);
 

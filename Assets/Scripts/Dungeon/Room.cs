@@ -11,6 +11,10 @@ public class Room
 
     public RoomNodeTypeSO roomNodeType;
 
+    public MusicTrackSO battleMusic;
+
+    public MusicTrackSO ambientMusic;
+
     public Vector2Int lowerBounds;
 
     public Vector2Int upperBounds;
