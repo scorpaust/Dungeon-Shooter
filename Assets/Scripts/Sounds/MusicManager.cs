@@ -28,10 +28,20 @@ public class MusicManager : SingletonMonobehaviour<MusicManager>
 
 	private void Start()
 	{
+        if (PlayerPrefs.HasKey("musicVolume"))
+		{
+            musicVolume = PlayerPrefs.GetInt("musicVolume");
+		}
+
         SetMusicVolume(musicVolume);
 	}
 
-    public void PlayMusic(MusicTrackSO musicTrack, float fadeOutTime = Settings.musicFadeOutTime, float fadeInTime = Settings.musicFadeInTime)
+	private void OnDisable()
+	{
+        PlayerPrefs.SetInt("musicVolume", musicVolume);
+	}
+
+	public void PlayMusic(MusicTrackSO musicTrack, float fadeOutTime = Settings.musicFadeOutTime, float fadeInTime = Settings.musicFadeInTime)
 	{
         // Play music track
         StartCoroutine(PlayMusicRoutine(musicTrack, fadeOutTime, fadeInTime));
@@ -84,6 +94,26 @@ public class MusicManager : SingletonMonobehaviour<MusicManager>
 
         yield return new WaitForSeconds(fadeInTime);
 	}
+
+    public void IncreaseMusicVolume()
+	{
+        int maxMusicVolume = 20;
+
+        if (musicVolume >= maxMusicVolume) return;
+
+        musicVolume += 1;
+
+        SetMusicVolume(musicVolume);
+	}
+
+    public void DecreaseMusicVolume()
+    {
+        if (musicVolume == 0) return;
+
+        musicVolume -= 1;
+
+        SetMusicVolume(musicVolume);
+    }
 
     public void SetMusicVolume(int musicVolume)
 	{

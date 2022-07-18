@@ -12,6 +12,12 @@ public class GameManager : SingletonMonobehaviour<GameManager>
     [Space(10)]
     [Header("GAMEOBJECT REFERENCES")]
     #endregion
+
+    #region Tooltip
+    [Tooltip("Populate with Pause Menu game object in the hierarchy")]
+    #endregion Tooltip
+    [SerializeField] private GameObject pauseMenu;
+
     #region Tooltip
     [Tooltip("Populate with the MessageText TMPro component in the FadeScreenUI")]
     #endregion Tooltip
@@ -197,10 +203,25 @@ public class GameManager : SingletonMonobehaviour<GameManager>
                 break;
 
             case GameState.playingLevel:
+
+                if (Input.GetKeyDown(KeyCode.Escape))
+				{
+                    PauseGameMenu();
+				}
+
                 if (Input.GetKeyDown(KeyCode.Tab))
 				{
                     DisplayDungeonOverviewMap();
 				}
+                break;
+
+            case GameState.engagingEnemies:
+
+                if (Input.GetKeyDown(KeyCode.Escape))
+                {
+                    PauseGameMenu();
+                }
+
                 break;
 
             case GameState.dungeonOverviewMap:
@@ -211,10 +232,25 @@ public class GameManager : SingletonMonobehaviour<GameManager>
                 break;
 
             case GameState.bossStage:
+
+                if (Input.GetKeyDown(KeyCode.Escape))
+                {
+                    PauseGameMenu();
+                }
+
                 if (Input.GetKeyDown(KeyCode.Tab))
 				{
                     DisplayDungeonOverviewMap();
 				}
+                break;
+
+            case GameState.engagingBoss:
+
+                if (Input.GetKeyDown(KeyCode.Escape))
+                {
+                    PauseGameMenu();
+                }
+
                 break;
 
             case GameState.levelCompleted:
@@ -241,8 +277,18 @@ public class GameManager : SingletonMonobehaviour<GameManager>
             case GameState.restartGame:
                 RestartGame();
                 break;
+
+            case GameState.gamePaused:
+
+                if (Input.GetKeyDown(KeyCode.Escape))
+                {
+                    PauseGameMenu();
+                }
+
+                break;
+
         }
-	}
+    }
 
     public void SetCurrentRoom(Room room)
 	{
@@ -300,6 +346,33 @@ public class GameManager : SingletonMonobehaviour<GameManager>
             StartCoroutine(BossStage());
 		}
 	}
+
+    public void PauseGameMenu()
+    {
+        if (gameState != GameState.gamePaused)
+		{
+            pauseMenu.SetActive(true);
+
+            GetPlayer().playerControl.DisablePlayer();
+
+            // Set game state
+            previousGameState = gameState;
+
+            gameState = GameState.gamePaused;
+		}
+
+        else if (gameState == GameState.gamePaused)
+		{
+            pauseMenu.SetActive(false);
+
+            GetPlayer().playerControl.EnablePlayer();
+
+            // Set game state
+            gameState = previousGameState;
+
+            previousGameState = GameState.gamePaused;
+        }
+    }
 
     private void DisplayDungeonOverviewMap()
 	{
@@ -537,6 +610,8 @@ public class GameManager : SingletonMonobehaviour<GameManager>
 
 	private void OnValidate()
 	{
+        HelperUtilities.ValidateCheckNullValue(this, nameof(pauseMenu), pauseMenu);
+
         HelperUtilities.ValidateCheckNullValue(this, nameof(messageTextTMP), messageTextTMP);
 
         HelperUtilities.ValidateCheckNullValue(this, nameof(canvasGroup), canvasGroup);
