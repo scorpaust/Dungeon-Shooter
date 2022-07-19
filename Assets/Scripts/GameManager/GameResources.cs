@@ -51,6 +51,11 @@ public class GameResources : MonoBehaviour
 	public AudioMixerGroup musicMasterMixerGroup;
 
 	#region Tooltip
+	[Tooltip("Main menu music scriptable object")]
+	#endregion Tooltip
+	public MusicTrackSO mainMenuMusic;
+
+	#region Tooltip
 	[Tooltip("Music on full snapshot")]
 	#endregion Tooltip
 	public AudioMixerSnapshot musicOnFullSnapshot;
@@ -220,6 +225,8 @@ public class GameResources : MonoBehaviour
 		HelperUtilities.ValidateCheckNullValue(this, nameof(preferedEnemyPathTile), preferedEnemyPathTile);
 
 		HelperUtilities.ValidateCheckNullValue(this, nameof(musicMasterMixerGroup), musicMasterMixerGroup);
+
+		HelperUtilities.ValidateCheckNullValue(this, nameof(mainMenuMusic), mainMenuMusic);
 
 		HelperUtilities.ValidateCheckNullValue(this, nameof(musicOnFullSnapshot), musicOnFullSnapshot);
 
