@@ -4605,6 +4605,7 @@ SpriteAtlas:
   - {fileID: -4884784474992557555, guid: bc3ebfbfa776bb347ab17bdea32dacdc, type: 3}
   - {fileID: -3107022070257336311, guid: bc3ebfbfa776bb347ab17bdea32dacdc, type: 3}
   - {fileID: -4797164070630322747, guid: bc3ebfbfa776bb347ab17bdea32dacdc, type: 3}
+  - {fileID: 21300000, guid: f75e21cf0149d374d94d826478831746, type: 3}
   - {fileID: -2968261653717720067, guid: ba6285cf889e9a545b5726299e3f4550, type: 3}
   - {fileID: -6616526602911267127, guid: ba6285cf889e9a545b5726299e3f4550, type: 3}
   - {fileID: 6991901520536941233, guid: ba6285cf889e9a545b5726299e3f4550, type: 3}
@@ -9499,6 +9500,7 @@ SpriteAtlas:
   - floor_vines0_3
   - floor_vines0_0
   - floor_vines0_1
+  - background_main_menu
   - swamp3_1
   - swamp3_0
   - swamp3_3

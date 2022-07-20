@@ -9,6 +9,8 @@ public class MainMenuUI : MonoBehaviour
     void Start()
     {
         MusicManager.Instance.PlayMusic(GameResources.Instance.mainMenuMusic, 0f, 2f);
+
+        SceneManager.LoadScene("CharacterSelectorScene", LoadSceneMode.Additive);
     }
 
     public void PlayGame()
