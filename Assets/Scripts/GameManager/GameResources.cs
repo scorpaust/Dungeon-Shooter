@@ -173,6 +173,11 @@ public class GameResources : MonoBehaviour
 	#endregion Tooltip
 	public GameObject ammoIconPrefab;
 
+	#region Tooltip
+	[Tooltip("Populate with the score prefab")]
+	#endregion Tooltip
+	public GameObject scorePrefab;
+
 	#region Header CHESTS
 	[Space(10)]
 	[Header("CHESTS")]
@@ -227,6 +232,8 @@ public class GameResources : MonoBehaviour
 		HelperUtilities.ValidateCheckNullValue(this, nameof(healthPickup), healthPickup);
 
 		HelperUtilities.ValidateCheckNullValue(this, nameof(ammoPickup), ammoPickup);
+
+		HelperUtilities.ValidateCheckNullValue(this, nameof(scorePrefab), scorePrefab);
 
 		HelperUtilities.ValidateCheckNullValue(this, nameof(weaponPickup), weaponPickup);
 

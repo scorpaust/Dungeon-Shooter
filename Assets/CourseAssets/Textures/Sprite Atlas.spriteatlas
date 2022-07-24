@@ -1319,6 +1319,7 @@ SpriteAtlas:
   - {fileID: -5697321232129565390, guid: bbb9e8e4a8abbc84ea5996613bab11f2, type: 3}
   - {fileID: 1157736144903432145, guid: bbb9e8e4a8abbc84ea5996613bab11f2, type: 3}
   - {fileID: -8495788941150826544, guid: bbb9e8e4a8abbc84ea5996613bab11f2, type: 3}
+  - {fileID: 21300000, guid: 2d30dae48d1b54d479dd8325d9a32f43, type: 3}
   - {fileID: -3989309352334042588, guid: 30284de4e0260ba4182ab41c902380d1, type: 3}
   - {fileID: 5284341613430007914, guid: 30284de4e0260ba4182ab41c902380d1, type: 3}
   - {fileID: 1166792820244127441, guid: 30284de4e0260ba4182ab41c902380d1, type: 3}
@@ -6214,6 +6215,7 @@ SpriteAtlas:
   - buckler1_0
   - buckler1_3
   - buckler1_2
+  - DungeonShooter_Icon
   - sandstone_floor5_1
   - sandstone_floor5_0
   - sandstone_floor5_3
